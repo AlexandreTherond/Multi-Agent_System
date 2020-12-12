@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+			<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+				defaultValue="__NULL__"
+				isReadOnly="false" 
+				converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									/>
+		<parameter name="createCar" displayName="Car creation rate" type="double" 
+				defaultValue="0.01" 
+				isReadOnly="false" 
+				converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									/>
+		<parameter name="lightDuration" displayName="Light duration" type="int" 
+				defaultValue="6" 
+				isReadOnly="false" 
+				converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									/>
+		<parameter name="dynamic" displayName="Traffic light dynamic" type="boolean" 
+				defaultValue="false" 
+				isReadOnly="false" 
+				converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									/>
+</parameters>
+
+
