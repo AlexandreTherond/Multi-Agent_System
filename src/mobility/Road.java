@@ -41,7 +41,6 @@ public class Road {
 		if (b) {
 			double rand = Math.random();
 			if (rand < createCar) {
-				System.out.println("createCar: " + createCar + " "+ rand);
 				int xcol = gpt.getX();
 				int yline = gpt.getY();
 				
