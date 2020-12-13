@@ -108,14 +108,11 @@ public class Bus {
 			if (o instanceof BusStop) {
 				GridPoint next = grid.getLocation(o);
 				
-				System.out.println("Direction: " + direction);
-				
 				if((gpt.getX()+1 == next.getX() && gpt.getY() == next.getY() && direction.equals("UP")) || // LET or RIGHT
 				   (gpt.getX()-1 == next.getX() && gpt.getY() == next.getY() && direction.equals("DOWN")) || // LET or RIGHT
 				   (gpt.getX() == next.getX() && gpt.getY()-1 == next.getY() && direction.equals("RIGHT")) || // UP or DOWN
 				   (gpt.getX() == next.getX() && gpt.getY()+1 == next.getY() && direction.equals("LEFT")) // UP or DOWN
 				) {
-					System.out.println("Stop");
 					// By default a bus stop at a bus stop
 					move = false;
 					int nbPassengerLeaving = 0;
@@ -126,9 +123,6 @@ public class Bus {
 					 *  The bus will almost randomly start again
 					 * */
 					double rand = Math.random();
-					
-					System.out.println("Rand: "+ rand);
-					System.out.println("Passenger: "+ passenger);
 					
 					if(rand > 0.5) {
 						nbPassengerLeaving = passenger / 2;
@@ -152,7 +146,6 @@ public class Bus {
 						nbPassengerLeaving = passenger / 4;
 						move = true;
 					}
-					System.out.println("Move:" + move);
 					
 					// All the persons at the bus stop will go in the bus
 					this.addNbPassenger(bstop.getNbPerson());
@@ -160,9 +153,6 @@ public class Bus {
 					
 					// Some passenger leave the bus
 					this.removeNbPassenger(nbPassengerLeaving);
-					
-					System.out.println("bstop.getNbPerson():" + bstop.getNbPerson());
-					System.out.println("Passenger: "+ passenger);
 				}
 			}
 		}
@@ -179,10 +169,6 @@ public class Bus {
 							int nextX = next.getX();
 							int nextY = next.getY();
 							
-							System.out.println("");
-							System.out.println("Current: "+ gptX + " " + gptY);
-							System.out.println("Next: "+ nextX + " " +nextY);
-							System.out.println("");
 							// Remove next road to move the bus
 							Context<Object> contextNext = ContextUtils.getContext(o);
 							Context<Object> contextBus = ContextUtils.getContext(this);
@@ -202,27 +188,6 @@ public class Bus {
 							grid.moveTo(road, gptX, gptY);
 							contextBus.add(road);
 							break;
-							/**
-							Context<Object> contextBus = ContextUtils.getContext(this);
-							contextBus.remove(this);
-							
-							Context<Object> contextNext = ContextUtils.getContext(o);
-							contextNext.remove(o);
-							
-							// Create new bus with current location
-							Bus bus = new Bus(grid, gpt.getX(), gpt.getY(), passenger);
-							contextNext.add(bus);
-							// Add new bus to the grid with next locations
-							grid.moveTo(bus, next.getX(), next.getY());
-							contextNext.add(bus);
-							
-							// Last location replace with empty road
-							Road road = new Road(grid);
-							contextBus.add(road);
-							
-							grid.moveTo(road, gpt.getX(), gpt.getY());
-							contextBus.add(road);
-							break;*/
 						}
 					}
 					
