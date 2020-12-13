@@ -66,7 +66,6 @@ public class GridMobility implements ContextBuilder<Object> {
 					context.add(road);
 					grid.moveTo(road, x, y);
 				} else if ((x == 9 && y == 19) || (x == 13 && y == 5)) {
-					System.out.println("X, Y:" + x + y);
 					lights = new Lights(grid, 0);
 					context.add(lights);
 					grid.moveTo(lights, x, y);
